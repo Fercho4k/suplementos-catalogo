@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto - Importadora Esbelt</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product-details.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo" onclick="window.location.href='index.html'">
+                <img src="images/logo.png" alt="Importadora Esbelt" class="logo-img">
+                <span>Importadora Esbelt</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="index.html#productos">Productos</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumb-category">Suplemento</span>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumb-product">Producto</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Product Details -->
+    <section class="product-details">
+        <div class="container">
+            <div class="product-layout">
+                <!-- Product Image -->
+                <div class="product-image-section">
+                    <div class="main-image" id="main-product-image">
+                        <span class="product-emoji">💊</span>
+                    </div>
+                    <div class="product-badges">
+                        <span class="badge-premium">Premium</span>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-section">
+                    <div class="product-category-tag" id="product-category">
+                        Quemador de Grasa
+                    </div>
+                    <h1 class="product-title" id="product-title">
+                        Nombre del Producto
+                    </h1>
+                    <p class="product-short-description" id="product-short-desc">
+                        Descripción corta del producto
+                    </p>
+                    
+                    <!-- Features Tags -->
+                    <div class="features-section">
+                        <h3>Características principales:</h3>
+                        <div class="features-tags" id="product-features">
+                            <!-- Las características se cargarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Contact Section -->
+                    <div class="contact-section">
+                        <h4><i class="fas fa-whatsapp"></i> ¡Contactanos para Comprar!</h4>
+                        <p>Realizamos ventas a través de WhatsApp con atención personalizada</p>
+                        
+                        <div class="vendedores-section">
+                            <div class="vendedor-card">
+                                <h5><i class="fas fa-user"></i> Vendedor 1</h5>
+                                <p class="vendedor-phone">+595 973 559418</p>
+                                <div class="vendedor-buttons">
+                                    <button class="whatsapp-btn" onclick="contactWhatsApp('consulta', '595973559418')">
+                                        <i class="fab fa-whatsapp"></i>
+                                        Consultar
+                                    </button>
+                                    <button class="whatsapp-btn whatsapp-buy" onclick="contactWhatsApp('comprar', '595973559418')">
+                                        <i class="fab fa-whatsapp"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="vendedor-card">
+                                <h5><i class="fas fa-user"></i> Vendedor 2</h5>
+                                <p class="vendedor-phone">+595 983 290049</p>
+                                <div class="vendedor-buttons">
+                                    <button class="whatsapp-btn" onclick="contactWhatsApp('consulta', '595983290049')">
+                                        <i class="fab fa-whatsapp"></i>
+                                        Consultar
+                                    </button>
+                                    <button class="whatsapp-btn whatsapp-buy" onclick="contactWhatsApp('comprar', '595983290049')">
+                                        <i class="fab fa-whatsapp"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <p><i class="fas fa-clock"></i> <strong>Horario:</strong> Lunes a Viernes 8:00 - 18:00</p>
+                        </div>
+                    </div>
+
+                    <!-- Security badges -->
+                    <div class="security-badges">
+                        <div class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Garantía de Calidad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Tabs -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="showTab('description')">Descripción</button>
+                <button class="tab-btn" onclick="showTab('ingredients')">Ingredientes</button>
+                <button class="tab-btn" onclick="showTab('benefits')">Beneficios</button>
+                <button class="tab-btn" onclick="showTab('usage')">Modo de Uso</button>
+            </div>
+
+            <div class="tabs-content">
+                <!-- Description Tab -->
+                <div class="tab-content active" id="description-tab">
+                    <h3>Descripción Completa</h3>
+                    <p id="full-description">
+                        Descripción completa del producto se cargará aquí...
+                    </p>
+                </div>
+
+                <!-- Ingredients Tab -->
+                <div class="tab-content" id="ingredients-tab">
+                    <h3>Ingredientes</h3>
+                    <ul class="ingredients-list" id="ingredients-list">
+                        <!-- Los ingredientes se cargarán dinámicamente -->
+                    </ul>
+                    <div class="ingredient-info">
+                        <p><strong>Nota:</strong> Todos nuestros ingredientes son de grado farmacéutico y han sido probados por terceros para garantizar pureza y potencia.</p>
+                    </div>
+                </div>
+
+                <!-- Benefits Tab -->
+                <div class="tab-content" id="benefits-tab">
+                    <h3>Beneficios Principales</h3>
+                    <div class="benefits-grid" id="benefits-list">
+                        <!-- Los beneficios se cargarán dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Usage Tab -->
+                <div class="tab-content" id="usage-tab">
+                    <h3>Modo de Uso</h3>
+                    <div class="usage-instructions">
+                        <div class="usage-content" id="usage-instructions">
+                            <!-- Las instrucciones se cargarán dinámicamente -->
+                        </div>
+                        <div class="warnings" id="product-warnings">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Advertencias:</h4>
+                            <p>Las advertencias se cargarán dinámicamente...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+            </div>
+        </div>
+    </section>    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2>Productos Relacionados</h2>
+            <div class="related-grid" id="related-products-grid">
+                <!-- Los productos relacionados se cargarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Importadora Esbelt</h3>
+                    <p>Tu tienda de confianza para suplementos de calidad premium</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/importadora_esbelt?utm_source=ig_web_button_share_sheet&igsh=MXR6Zjdsa2dpbzlqaw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#productos">Productos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> Vendedor 1: +595 973 559418</p>
+                    <p><i class="fas fa-phone"></i> Vendedor 2: +595 983 290049</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Importadora Esbelt. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/product-details.js"></script>
+</body>
+</html>

@@ -1,0 +1,1729 @@
+/* Reset y variables globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2d5016;        /* Verde oscuro principal de Esbelt */
+    --primary-dark: #1a2f0d;         /* Verde más oscuro para hover */
+    --secondary-color: #52c41a;      /* Verde claro secundario */
+    --accent-color: #73d13d;         /* Verde claro para acentos */
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-light: #9ca3af;
+    --background: #ffffff;
+    --background-secondary: #f6ffed; /* Fondo con toque verde muy suave */
+    --border-color: #d9f7be;         /* Bordes con toque verde suave */
+    --shadow-sm: 0 1px 2px 0 rgb(45 80 22 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(45 80 22 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(45 80 22 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(45 80 22 / 0.1);
+    --gradient-primary: linear-gradient(135deg, #2d5016 0%, #52c41a 100%);      /* Gradiente Esbelt */
+    --gradient-secondary: linear-gradient(135deg, #52c41a 0%, #73d13d 100%);    /* Gradiente verde claro */
+    --gradient-success: linear-gradient(135deg, #389e0d 0%, #52c41a 100%);      /* Gradiente éxito verde */
+    
+    /* Transiciones globales */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* Efecto highlight para navegación */
+.section-highlight {
+    animation: sectionHighlight 2s ease-in-out;
+}
+
+@keyframes sectionHighlight {
+    0% {
+        background-color: transparent;
+    }
+    25% {
+        background-color: rgba(82, 196, 26, 0.1);
+    }
+    75% {
+        background-color: rgba(82, 196, 26, 0.05);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* Forzar fondos sólidos sin transparencia para productos */
+.no-transparency {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+}
+
+.no-transparency img {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    -webkit-background-clip: padding-box !important;
+    background-clip: padding-box !important;
+}
+
+/* Transiciones suaves globales */
+*,
+*::before,
+*::after {
+    transition: all var(--transition-normal);
+}
+
+/* Excepciones para elementos que no necesitan transición */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header mejorado y responsive */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all var(--transition-normal);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    transition: transform var(--transition-normal);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-img {
+    height: clamp(2rem, 4vw, 3rem);
+    width: auto;
+    object-fit: contain;
+    transition: transform var(--transition-normal);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+/* Navegación responsive */
+.nav {
+    display: flex;
+    gap: 2rem;
+    transition: all var(--transition-normal);
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav a:hover {
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-normal);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Menú hamburguesa para móviles */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    background: none;
+    transition: transform var(--transition-normal);
+}
+
+.mobile-menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all var(--transition-normal);
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    transition: all var(--transition-normal);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.cart-icon:hover {
+    color: var(--primary-color);
+    background: rgba(45, 80, 22, 0.1);
+    transform: scale(1.1);
+}
+
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    animation: bounce 0.5s ease;
+}
+
+/* Hero Section responsive y con animaciones */
+.hero {
+    background: var(--gradient-primary);
+    color: white;
+    padding: clamp(6rem, 12vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.cta-button {
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+    animation: fadeInUp 1s ease 0.6s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left var(--transition-slow);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* WhatsApp Contact Section */
+.contact-section {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #22c55e;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.contact-section h4 {
+    color: #166534;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.contact-section h4 i {
+    color: #25d366;
+    font-size: 1.8rem;
+}
+
+.contact-section p {
+    color: #166534;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    background: linear-gradient(135deg, #22c55e 0%, #059669 100%);
+}
+
+.whatsapp-btn.whatsapp-buy {
+    background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+}
+
+.whatsapp-btn.whatsapp-buy:hover {
+    background: linear-gradient(135deg, #0f766e 0%, #064e3b 100%);
+}
+
+.whatsapp-btn i {
+    font-size: 1.3rem;
+}
+
+/* Estilos para las tarjetas de vendedores */
+.vendedores-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.vendedor-card {
+    background: linear-gradient(135deg, #f6ffed 0%, #d9f7be 100%);
+    border: 2px solid var(--secondary-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.vendedor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(45, 80, 22, 0.15);
+}
+
+.vendedor-card h5 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.vendedor-phone {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vendedor-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.vendedor-buttons .whatsapp-btn {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+}
+
+.contact-info {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #22c55e;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.contact-info i {
+    color: #166534;
+    width: 20px;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        display: block;
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+    
+    .contact-section {
+        padding: 1.5rem;
+    }
+    
+    .vendedores-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .vendedor-card {
+        padding: 1rem;
+    }
+    
+    .vendedor-card h5 {
+        font-size: 1rem;
+    }
+    
+    .vendedor-phone {
+        font-size: 0.9rem;
+    }
+}
+
+/* Filters Section responsive y mejorada */
+.filters-section {
+    background: var(--background-secondary);
+    padding: clamp(2rem, 5vh, 3rem) 0;
+}
+
+.filters-section h2 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+    animation: fadeInUp 0.8s ease;
+}
+
+.filters {
+    display: flex;
+    gap: 1.5rem;
+    align-items: end;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: white;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: clamp(150px, 20vw, 200px);
+    flex: 1;
+    max-width: 250px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: color var(--transition-normal);
+}
+
+.filter-group select {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+    transform: translateY(-1px);
+}
+
+.filter-group select:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.clear-filters {
+    background: var(--gradient-secondary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.clear-filters:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%, #ff6b6b 100%);
+}
+
+.clear-filters:active {
+    transform: translateY(0) scale(1);
+}
+
+/* Products Section mejorada */
+.products-section {
+    padding: clamp(2rem, 5vh, 3rem) 0;
+}
+
+/* Combos Section - Diferenciación visual */
+.combos-section {
+    padding: clamp(2rem, 5vh, 3rem) 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-top: 3px solid var(--secondary-color);
+    position: relative;
+}
+
+.combos-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+}
+
+.combos-section h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.combos-section h2::after {
+    content: '✨';
+    margin-left: 0.5rem;
+    font-size: 0.8em;
+}
+
+.section-description {
+    text-align: center;
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.combos-section .product-card {
+    border: 2px solid var(--secondary-color);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Badge COMBO - usando ::after para evitar conflicto con ::before del gradiente */
+.combos-section .product-card::after {
+    content: 'COMBO';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 3;
+    transform: rotate(12deg);
+}
+
+/* Desactivar completamente el gradiente azul en combos */
+.combos-section .product-card::before {
+    display: none !important;
+}
+
+.combos-section .product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(45, 80, 22, 0.2);
+    border-color: var(--primary-color);
+}
+
+/* Asegurar que no haya efectos de hover en ::before para combos */
+.combos-section .product-card:hover::before {
+    display: none !important;
+}
+
+.no-combos {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #64748b;
+}
+
+.no-combos i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.no-combos h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 3rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    transform: translateY(0);
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(45, 80, 22, 0.05), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-image {
+    width: 100%;
+    height: 220px;
+    background: var(--gradient-success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(3rem, 6vw, 4rem);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-normal);
+    /* Eliminar cualquier patrón de transparencia por defecto */
+    background-image: none !important;
+}
+
+.product-image img {
+    width: 80%;
+    height: 180px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    /* Forzar fondo blanco sólido para eliminar transparencia completamente */
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    padding: 15px;
+    border: 2px solid #f5f5f5;
+    /* Eliminar cualquier efecto de transparencia */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    /* Asegurar que no haya patrones de transparencia */
+    -webkit-background-clip: content-box !important;
+    background-clip: content-box !important;
+    margin: auto;
+    display: block;
+}
+
+.product-image.has-image {
+    /* Fondo blanco sólido garantizado */
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e9ecef;
+    /* Eliminar cualquier patrón de transparencia del contenedor */
+    background-image: none !important;
+}
+
+.product-card:has(.has-image) {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.product-card:has(.has-image):hover {
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    animation: patternMove 20s linear infinite;
+}
+
+/* Eliminar el patrón para imágenes reales */
+.product-image.has-image::before {
+    display: none !important;
+}
+
+.product-info {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.product-category {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    transition: color var(--transition-normal);
+}
+
+.product-card:hover .product-category {
+    color: var(--primary-dark);
+}
+
+.product-name {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+    transition: color var(--transition-normal);
+}
+
+.product-card:hover .product-name {
+    color: var(--primary-color);
+}
+
+.product-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    transition: color var(--transition-normal);
+}
+
+.product-features {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.feature-tag {
+    background: var(--background-secondary);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+}
+
+.product-card:hover .feature-tag {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+    animation: fadeInUp 0.8s ease;
+}
+
+.no-results i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    animation: bounce 2s infinite;
+}
+
+.no-results h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+/* Sección de Contacto */
+.contact-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--background-secondary) 0%, #ffffff 100%);
+}
+
+.contact-content {
+    margin-top: 3rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--secondary-color);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: transform var(--transition-normal);
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.contact-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+}
+
+.contact-btn.whatsapp-btn {
+    background: #25D366;
+    color: white;
+}
+
+.contact-btn.whatsapp-btn:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.contact-btn.instagram-btn {
+    background: linear-gradient(45deg, #833AB4, #FD1D1D, #F77737);
+    color: white;
+}
+
+.contact-btn.instagram-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(131, 58, 180, 0.3);
+}
+
+.schedule {
+    text-align: left;
+    background: var(--background-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.schedule p {
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.schedule p:last-child {
+    margin-bottom: 0;
+}
+
+.schedule strong {
+    color: var(--primary-color);
+}
+
+/* Footer mejorado */
+.footer {
+    background: linear-gradient(135deg, #1a2f0d 0%, var(--text-primary) 100%);
+    color: white;
+    padding: 3rem 0 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(45, 80, 22, 0.1) 0%, transparent 50%, rgba(82, 196, 26, 0.1) 100%);
+    animation: gradientShift 15s ease-in-out infinite;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: white;
+    transition: color var(--transition-normal);
+}
+
+.footer-section h3 {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.5rem;
+}
+
+.footer-section p,
+.footer-section li {
+    color: #d1d5db;
+    margin-bottom: 0.5rem;
+    transition: color var(--transition-normal);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.footer-section a::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: all var(--transition-normal);
+}
+
+.footer-section a:hover::before {
+    opacity: 1;
+    left: -15px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-secondary);
+    transition: left var(--transition-normal);
+}
+
+.social-links a:hover::before {
+    left: 0;
+}
+
+.social-links a i {
+    position: relative;
+    z-index: 1;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+    position: relative;
+    z-index: 1;
+    transition: color var(--transition-normal);
+}
+
+/* Responsive Design Mejorado */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .filters {
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .hero {
+        padding: 5rem 0 4rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .product-image img {
+        max-width: 83%;
+        max-height: 83%;
+        padding: 18px;
+        border: 2px solid #f0f0f0;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        min-width: auto;
+        max-width: none;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Contacto responsive */
+    .contact-section {
+        padding: 3rem 0;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .contact-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .header .container {
+        padding: 0.75rem 15px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .logo {
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .logo-img {
+        height: clamp(1.8rem, 3.5vw, 2.5rem);
+    }
+    
+    .nav {
+        order: 2;
+        border-top: none;
+        padding-top: 0;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .cart-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .hero {
+        padding: 4rem 0 3rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+    
+    .filters-section {
+        padding: 2rem 0;
+    }
+    
+    .filters {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .product-card {
+        margin: 0 5px;
+    }
+    
+    .product-image {
+        height: 200px;
+        font-size: 3rem;
+    }
+    
+    .product-image img {
+        max-width: 80%;
+        max-height: 80%;
+        padding: 15px;
+        border: 1px solid #f0f0f0;
+    }
+    
+    .product-info {
+        padding: 1rem;
+    }
+    
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-content {
+        gap: 1.5rem;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Animaciones adicionales */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40%, 43% {
+        transform: translateY(-15px);
+    }
+    70% {
+        transform: translateY(-7px);
+    }
+    90% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+    }
+}
+
+@keyframes patternMove {
+    0% {
+        background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    100% {
+        background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px;
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background: linear-gradient(45deg, rgba(45, 80, 22, 0.1) 0%, transparent 50%, rgba(82, 196, 26, 0.1) 100%);
+    }
+    50% {
+        background: linear-gradient(45deg, rgba(82, 196, 26, 0.1) 0%, transparent 50%, rgba(45, 80, 22, 0.1) 100%);
+    }
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animaciones adicionales para efectos JavaScript */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes particle-burst {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateX(0) translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes progress-bar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--primary-color);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Clases de utilidad para animaciones */
+.animate-fade-in-up {
+    animation: fadeInUp var(--transition-slow) ease-out forwards;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown var(--transition-slow) ease-out forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft var(--transition-normal) ease-out forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight var(--transition-normal) ease-out forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.animate-zoom-in {
+    animation: zoom-in var(--transition-normal) ease-out forwards;
+}
+
+/* Efectos hover mejorados */
+.hover-lift {
+    transition: all var(--transition-normal) ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.hover-glow {
+    transition: all var(--transition-normal) ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.hover-scale {
+    transition: transform var(--transition-fast) ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Efectos de loading */
+.loading-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.loading-skeleton {
+    background: #e2e8f0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-skeleton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+/* Transiciones de página */
+.page-transition {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.page-enter {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.page-exit {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.page-exit-active {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+}
+
+/* Efectos de scroll */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mejoras en la accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Estados de focus mejorados */
+*:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+button:focus,
+select:focus,
+input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Ajustes responsivos para imágenes de productos */
+@media (max-width: 768px) {
+    .product-image {
+        height: 180px;
+    }
+    
+    .product-image img {
+        width: 85%;
+        height: 140px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-image {
+        height: 160px;
+    }
+    
+    .product-image img {
+        width: 90%;
+        height: 120px;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product-image img {
+        width: 75%;
+        height: 200px;
+        padding: 20px;
+    }
+}

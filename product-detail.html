@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importadora Esbelt - Detalles del Producto</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <span>Importadora Esbelt</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="back-button">
+                <a href="index.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Volver al catálogo
+                </a>
+            </div>
+            
+            <div class="product-detail-container">
+                <div class="product-image-section">
+                    <div class="product-image-main">
+                        <img id="product-image" src="" alt="" class="main-image">
+                    </div>
+                </div>
+                
+                <div class="product-info-section">
+                    <div class="product-header">
+                        <h1 id="product-name" class="product-title"></h1>
+                        <div class="product-rating">
+                            <div class="stars" id="product-rating"></div>
+                            <span class="rating-text">(Calificación promedio)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price" id="product-price"></span>
+                            <span class="original-price" id="original-price"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-description">
+                        <h3>Descripción</h3>
+                        <p id="product-description"></p>
+                    </div>
+                    
+                    <div class="product-benefits">
+                        <h3>Beneficios Principales</h3>
+                        <ul id="product-benefits"></ul>
+                    </div>
+                    
+                    <div class="product-ingredients">
+                        <h3>Ingredientes Activos</h3>
+                        <div id="product-ingredients"></div>
+                    </div>
+                    
+                    <div class="product-usage">
+                        <h3>Modo de Uso</h3>
+                        <p id="product-usage"></p>
+                    </div>
+                    
+                    <div class="product-warnings">
+                        <h3>Advertencias</h3>
+                        <p id="product-warnings"></p>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <label for="quantity">Cantidad:</label>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                        </div>
+                        <button class="add-to-cart-btn" id="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar al Carrito
+                        </button>
+                        <button class="buy-now-btn">
+                            <i class="fas fa-credit-card"></i>
+                            Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-tabs">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="specifications">Especificaciones</button>
+                    <button class="tab-button" data-tab="reviews">Reseñas</button>
+                    <button class="tab-button" data-tab="faq">FAQ</button>
+                </div>
+                
+                <div class="tabs-content">
+                    <div class="tab-panel active" id="specifications">
+                        <div class="specifications-grid" id="product-specifications">
+                            <!-- Especificaciones se cargarán dinámicamente -->
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="reviews">
+                        <div class="reviews-container">
+                            <div class="review-summary">
+                                <div class="average-rating">
+                                    <span class="rating-number">4.5</span>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="total-reviews">basado en 127 reseñas</span>
+                                </div>
+                            </div>
+                            <div class="reviews-list">
+                                <div class="review">
+                                    <div class="review-header">
+                                        <span class="reviewer-name">María González</span>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="review-text">Excelente producto, he notado resultados desde la primera semana. Lo recomiendo totalmente.</p>
+                                    <span class="review-date">Hace 2 semanas</span>
+                                </div>
+                                <div class="review">
+                                    <div class="review-header">
+                                        <span class="reviewer-name">Carlos Rodríguez</span>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="review-text">Buen producto, aunque los resultados tardaron un poco más en aparecer. La calidad es buena.</p>
+                                    <span class="review-date">Hace 1 mes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="faq">
+                        <div class="faq-container">
+                            <div class="faq-item">
+                                <h4>¿Cuánto tiempo tarda en hacer efecto?</h4>
+                                <p>Los resultados pueden variar, pero generalmente se observan cambios en las primeras 2-4 semanas de uso constante.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>¿Tiene efectos secundarios?</h4>
+                                <p>Este producto está formulado con ingredientes naturales y es generalmente bien tolerado. Consulte con su médico antes de usar.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>¿Puedo tomarlo con otros medicamentos?</h4>
+                                <p>Recomendamos consultar con un profesional de la salud antes de combinar con otros medicamentos o suplementos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Importadora Esbelt</h3>
+                    <p>Tu partner confiable en suplementos para una vida saludable</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#productos">Productos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@importadoraesbelt.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Importadora Esbelt. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>

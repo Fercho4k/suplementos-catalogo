@@ -1,0 +1,54 @@
+/* EJEMPLO: L-Carnitina con imagen real */
+
+// ANTES (en products.js):
+{
+    id: 1,
+    name: "L-Carnitina Premium 3000mg",
+    category: "quemadores",
+    price: 45.99,
+    effectiveness: "alta",
+    image: "💊",  // ← EMOJI ACTUAL
+    shortDescription: "Potente quemador de grasa que ayuda a convertir la grasa en energía",
+    // ... resto del producto
+}
+
+// DESPUÉS (con imagen real):
+{
+    id: 1,
+    name: "L-Carnitina Premium 3000mg", 
+    category: "quemadores",
+    price: 45.99,
+    effectiveness: "alta",
+    image: "images/products/l-carnitina-premium.jpg",  // ← RUTA DE LA IMAGEN
+    shortDescription: "Potente quemador de grasa que ayuda a convertir la grasa en energía",
+    // ... resto del producto
+}
+
+/*
+PASOS PARA AGREGAR TUS IMÁGENES:
+
+1. 📁 Crea la carpeta: images/products/
+2. 📸 Coloca tus imágenes de productos ahí
+3. ✏️  Edita products.js y cambia los emojis por rutas
+4. 🎯 El código ya detecta automáticamente si es imagen o emoji
+
+NOMBRES SUGERIDOS PARA LAS IMÁGENES:
+- l-carnitina-premium.jpg
+- garcinia-cambogia.jpg
+- green-coffee-bean.jpg
+- chitosan-blocker.jpg
+- white-kidney-bean.jpg
+- glucomannan-fiber.jpg
+- hoodia-gordonii.jpg
+- green-tea-extract.jpg
+- cayenne-pepper.jpg
+- forskolin-extract.jpg
+- raspberry-ketones.jpg
+- cla-conjugated.jpg
+
+ESPECIFICACIONES:
+✅ Formato: JPG, PNG, WebP
+✅ Tamaño: 400x400px (cuadradas)
+✅ Peso: Máximo 200KB
+✅ Fondo: Transparente o blanco limpio
+*/

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importadora Esbelt - Catálogo de Suplementos para Bajar de Peso</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Importadora Esbelt" class="logo-img">
+                <span>Importadora Esbelt</span>
+            </div>
+            <nav class="nav">
+                <a href="#inicio">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#combos">Combos</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforma tu cuerpo con los mejores suplementos</h1>
+                <p>Descubre nuestra selección premium de suplementos para bajar de peso de forma natural y efectiva</p>
+                <button class="cta-button" onclick="document.getElementById('productos').scrollIntoView()">
+                    Ver Productos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="productos">
+        <div class="container">
+            <h2>Productos Individuales</h2>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="products-grid">
+                <!-- Los productos individuales se cargarán dinámicamente con JavaScript -->
+            </div>
+            <div class="no-results" id="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No se encontraron productos</h3>
+                <p>Intenta ajustar los filtros para ver más resultados</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combos Section -->
+    <section class="combos-section" id="combos">
+        <div class="container">
+            <h2>Combos Especiales</h2>
+            <p class="section-description">Ahorra más con nuestros combos especialmente diseñados para mejores resultados</p>
+            <div class="products-grid" id="combos-grid">
+                <!-- Los combos se cargarán dinámicamente con JavaScript -->
+            </div>
+            <div class="no-combos" id="no-combos" style="display: none;">
+                <i class="fas fa-box"></i>
+                <h3>No hay combos disponibles</h3>
+                <p>Próximamente tendremos nuevos combos especiales</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-phone-alt"></i> Contactanos</h2>
+                <p>Estamos aquí para ayudarte con tus consultas sobre nuestros productos</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Contactanos directamente por WhatsApp para compras y consultas</p>
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/595973559418?text=Hola%20Vendedor%201!%20Tengo%20una%20consulta%20sobre%20los%20productos%20de%20Importadora%20Esbelt" 
+                               target="_blank" class="contact-btn whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i>
+                                Vendedor 1: +595 973 559418
+                            </a>
+                            <a href="https://wa.me/595983290049?text=Hola%20Vendedor%202!%20Tengo%20una%20consulta%20sobre%20los%20productos%20de%20Importadora%20Esbelt" 
+                               target="_blank" class="contact-btn whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i>
+                                Vendedor 2: +595 983 290049
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3>Instagram</h3>
+                        <p>Síguenos en Instagram para ver productos y ofertas especiales</p>
+                        <a href="https://www.instagram.com/importadora_esbelt?utm_source=ig_web_button_share_sheet&igsh=MXR6Zjdsa2dpbzlqaw==" 
+                           target="_blank" class="contact-btn instagram-btn">
+                            <i class="fab fa-instagram"></i>
+                            @importadora_esbelt
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Horarios de Atención</h3>
+                        <p>Nuestros horarios para atención personalizada</p>
+                        <div class="schedule">
+                            <p><strong>Lunes a Viernes:</strong> 8:00 - 14:00</p>
+                            <p><strong>Sábados y Domingos:</strong> Cerrado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Importadora Esbelt</h3>
+                    <p>Tu tienda de confianza para suplementos de calidad premium</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/importadora_esbelt?utm_source=ig_web_button_share_sheet&igsh=MXR6Zjdsa2dpbzlqaw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> Vendedor 1: +595 973 559418</p>
+                    <p><i class="fas fa-phone"></i> Vendedor 2: +595 983 290049</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Importadora Esbelt. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Productos - Esbelt</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .producto { border: 1px solid #ccc; margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Test de Productos Esbelt</h1>
+    <div id="contador"></div>
+    <div id="lista-productos"></div>
+
+    <script src="js/products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Productos cargados:', products);
+            
+            const contador = document.getElementById('contador');
+            const lista = document.getElementById('lista-productos');
+            
+            contador.innerHTML = `<h2>Total de productos: ${products.length}</h2>`;
+            
+            lista.innerHTML = products.map((product, index) => `
+                <div class="producto">
+                    <h3>${index + 1}. ${product.name}</h3>
+                    <p><strong>Categoría:</strong> ${product.category}</p>
+                    <p><strong>Imagen:</strong> ${product.image}</p>
+                    <p><strong>Descripción:</strong> ${product.shortDescription}</p>
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
+</html>
