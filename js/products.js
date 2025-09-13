@@ -27,7 +27,7 @@ const products = [
         category: "termogenicos",
         price: 58.75,
         image: "images/products/Fat-Fit-Black.webp",
-        fullDescription: "FAT FIT BLACK es un compuesto destinado a personas con dificultades para adelgazar. Además de inhibir el apetito y ayudar en la reeducación alimentaria, proporciona resistencia y energía para la vida diaria. Reduce los antojos de comida y apoya el control de peso, promoviendo una digestión saludable. Actúa como antioxidante y regula los niveles de glucosa en la sangre. El efecto dura más tiempo de saciedad en el cuerpo para quienes ya se adaptaron a Esbelt Fat Fit, te reactiva.",
+    fullDescription: "FAT FIT BLACK es un compuesto destinado a personas con dificultades para adelgazar. Además de inhibir el apetito y ayudar en la reeducación alimentaria, proporciona resistencia y energía para la vida diaria. Reduce los antojos de comida y apoya el control de peso, promoviendo una digestión saludable. Actúa como antioxidante y regula los niveles de glucosa en la sangre. El efecto dura más tiempo de saciedad en el cuerpo para quienes ya se adaptaron a Esbelt Fat Fit, te reactiva.\n\nFat Fit Black Principiante: Para quien nunca tomó adelgazante y quiere empezar a tomar suplemento.",
         ingredients: ["Garcinia cambogia", "Aloe vera", "Sene", "Psyllium", "Berenjena", "Ginseng"],
         usage: "1 cápsula después del desayuno",
         benefits: [
@@ -134,20 +134,6 @@ const products = [
         }
             ,
             // PRODUCTOS Y COMBOS AGREGADOS AUTOMÁTICAMENTE
-            {
-                id: 10,
-                name: "Combo 1 Esbelt Premium",
-                category: "combos",
-                price: 120.00,
-                image: "images/products/Combo-1-Esbelt-Premium.webp",
-                shortDescription: "Combo premium para resultados óptimos.",
-                fullDescription: "Incluye productos seleccionados para potenciar la pérdida de peso y bienestar.",
-                usage: "Consultar indicaciones de cada producto.",
-                benefits: ["Resultados óptimos", "Ahorro", "Combinación ideal"],
-                warnings: "Consultar con el vendedor antes de combinar productos.",
-                features: ["Combo", "Premium", "Resultados"]
-    ,ingredients: []
-            },
             {
                 id: 11,
                 name: "Combo Diet Green",
@@ -280,7 +266,7 @@ const products = [
                 category: "termogenicos",
                 price: 20.00,
                 image: "images/products/diet-green-15.webp",
-                shortDescription: "Presentación de 15 cápsulas de Diet Green.",
+            fullDescription: "Ideal para quienes buscan resultados intensos y rápidos.\n\nEs más concentrado, su inhibidor de apetito dura más tiempo.",
                 fullDescription: "Ideal para quienes buscan probar Diet Green en formato pequeño.",
                 usage: "1 cápsula después del desayuno",
                 benefits: ["Formato pequeño", "Efectivo", "Práctico"],
@@ -303,34 +289,6 @@ const products = [
     ,ingredients: []
             },
             {
-                id: 22,
-                name: "Esbelt Premium 2",
-                category: "suplementos",
-                price: 60.00,
-                image: "images/products/Esbelt-Premium-2.webp",
-                shortDescription: "Presentación especial de Esbelt Premium.",
-                fullDescription: "Suplemento premium para resultados superiores.",
-                usage: "1 cápsula después del desayuno",
-                benefits: ["Premium", "Resultados superiores", "Efectivo"],
-                warnings: "No exceder la dosis recomendada.",
-                features: ["Premium", "Suplemento", "Resultados"]
-    ,ingredients: []
-            },
-            {
-                id: 23,
-                name: "Esbelt Premium",
-                category: "suplementos",
-                price: 55.00,
-                image: "images/products/Esbelt-Premium.webp",
-                shortDescription: "Suplemento Esbelt Premium.",
-                fullDescription: "Suplemento premium para apoyar la dieta y el bienestar.",
-                usage: "1 cápsula después del desayuno",
-                benefits: ["Premium", "Apoya la dieta", "Bienestar"],
-                warnings: "No exceder la dosis recomendada.",
-                features: ["Premium", "Suplemento", "Bienestar"]
-    ,ingredients: []
-            },
-            {
                 id: 24,
                 name: "Fat Fit B",
                 category: "termogenicos",
@@ -346,31 +304,31 @@ const products = [
             },
             {
                 id: 25,
-                name: "Fat Fit Black 15",
+                name: "Fat Fit Black Extra Forte 15",
                 category: "termogenicos",
                 price: 22.00,
                 image: "images/products/Fat-fit-black-15.webp",
-                shortDescription: "Presentación de 15 cápsulas de Fat Fit Black.",
-                fullDescription: "Ideal para quienes buscan probar Fat Fit Black en formato pequeño.",
+                shortDescription: "Presentación de 15 cápsulas de Fat Fit Black Extra Forte.",
+                fullDescription: "Ideal para quienes buscan probar Fat Fit Black Extra Forte en formato pequeño.",
                 usage: "1 cápsula después del desayuno",
                 benefits: ["Formato pequeño", "Efectivo", "Práctico"],
                 warnings: "No exceder la dosis recomendada.",
-                features: ["Termogénico", "Fat Fit Black", "15 cápsulas"]
-    ,ingredients: []
-    ,ingredients: []
+                features: ["Termogénico", "Fat Fit Black Extra Forte", "15 cápsulas"],
+                ingredients: []
             },
             {
                 id: 26,
-                name: "Fat Fit Black 15c",
+                name: "Fat Fit Black Extra Forte 15c",
                 category: "termogenicos",
                 price: 23.00,
                 image: "images/products/Fat-fit-black-15c.webp",
-                shortDescription: "Presentación especial de 15 cápsulas de Fat Fit Black.",
-                fullDescription: "Ideal para quienes buscan probar Fat Fit Black en formato especial.",
+                shortDescription: "Presentación especial de 15 cápsulas de Fat Fit Black Extra Forte.",
+                fullDescription: "Ideal para quienes buscan probar Fat Fit Black Extra Forte en formato especial.",
                 usage: "1 cápsula después del desayuno",
                 benefits: ["Formato especial", "Efectivo", "Práctico"],
                 warnings: "No exceder la dosis recomendada.",
-                features: ["Termogénico", "Fat Fit Black", "15 cápsulas"]
+                features: ["Termogénico", "Fat Fit Black Extra Forte", "15 cápsulas"],
+                ingredients: []
             },
             {
                 id: 27,
