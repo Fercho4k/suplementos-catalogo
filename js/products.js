@@ -19,6 +19,7 @@ const products = [
         ],
         warnings: "Si está tomando alguna medicación recetada, no ingiera este producto sin consultar a su médico. Puede interaccionar con los antiarrítmicos, incluida antibióticos y antiinflamatorios. No debe ser administrado a pacientes ancianos y personas debilitadas sin consultar a su médico."
         ,features: ["Alta Potencia", "Control de Apetito", "Termogénico"]
+    ,ingredients: []
     },
     {
         id: 3,
@@ -58,6 +59,7 @@ const products = [
         ],
         warnings: "Beber mucha agua durante el uso. Consulte a su médico si tiene problemas digestivos.",
         features: ["Desintoxicante", "Natural", "Mejora Digestión"]
+    ,ingredients: []
     },
         // PRODUCTOS AGREGADOS AUTOMÁTICAMENTE
         {
@@ -72,6 +74,8 @@ const products = [
             benefits: ["Reduce medidas", "Reafirma la piel", "Fácil aplicación"],
             warnings: "No aplicar sobre heridas abiertas.",
             features: ["Reductor", "Tópico", "Fácil uso"]
+    ,ingredients: []
+    ,ingredients: []
         },
         {
             id: 6,
@@ -98,6 +102,7 @@ const products = [
             benefits: ["Aporta vitaminas", "Apoya la dieta", "Mejora energía"],
             warnings: "No exceder la dosis recomendada.",
             features: ["Vitaminas", "Minerales", "Energía"]
+    ,ingredients: []
         },
         {
             id: 8,
@@ -111,6 +116,7 @@ const products = [
             benefits: ["Reduce abdomen", "Elimina líquidos", "Natural"],
             warnings: "No recomendado para embarazadas.",
             features: ["Natural", "Bebida", "Reductor"]
+    ,ingredients: []
         },
         {
             id: 9,
@@ -124,6 +130,7 @@ const products = [
             benefits: ["Desintoxica", "Refresca", "Natural"],
             warnings: "No exceder la dosis recomendada.",
             features: ["Detox", "Bebida", "Natural"]
+    ,ingredients: []
         }
             ,
             // PRODUCTOS Y COMBOS AGREGADOS AUTOMÁTICAMENTE
@@ -139,6 +146,7 @@ const products = [
                 benefits: ["Resultados óptimos", "Ahorro", "Combinación ideal"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Premium", "Resultados"]
+    ,ingredients: []
             },
             {
                 id: 11,
@@ -152,6 +160,7 @@ const products = [
                 benefits: ["Acelera resultados", "Combinación efectiva"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Diet Green", "Resultados"]
+    ,ingredients: []
             },
             {
                 id: 12,
@@ -165,6 +174,7 @@ const products = [
                 benefits: ["Desintoxica", "Extra fuerte", "Resultados rápidos"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Detox", "Extra fuerte"]
+    ,ingredients: []
             },
             {
                 id: 13,
@@ -178,6 +188,7 @@ const products = [
                 benefits: ["Resultados completos", "Mayor duración"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Fat Fit", "Resultados"]
+    ,ingredients: []
             },
             {
                 id: 14,
@@ -191,6 +202,7 @@ const products = [
                 benefits: ["Resultados intensos", "Mayor intensidad"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Fat Fit Black", "Intensidad"]
+    ,ingredients: []
             },
             {
                 id: 15,
@@ -204,6 +216,7 @@ const products = [
                 benefits: ["Desintoxica", "Adelgaza", "Mayor efectividad"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Fat Fit Detox", "Efectividad"]
+    ,ingredients: []
             },
             {
                 id: 16,
@@ -217,6 +230,7 @@ const products = [
                 benefits: ["Resultados máximos", "Combinación potente"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Fat Fit Detox", "Diet Green"]
+    ,ingredients: []
             },
             {
                 id: 17,
@@ -230,6 +244,7 @@ const products = [
                 benefits: ["Resultados intensos", "Desintoxicación"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Fat Fit Black", "Detox"]
+    ,ingredients: []
             },
             {
                 id: 18,
@@ -243,6 +258,7 @@ const products = [
                 benefits: ["Acelera resultados", "Combinación efectiva"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Té", "Diet Green"]
+    ,ingredients: []
             },
             {
                 id: 19,
@@ -256,6 +272,7 @@ const products = [
                 benefits: ["Resultados intensos", "Combinación efectiva"],
                 warnings: "Consultar con el vendedor antes de combinar productos.",
                 features: ["Combo", "Té", "Fat Fit Black"]
+    ,ingredients: []
             },
             {
                 id: 20,
@@ -269,6 +286,7 @@ const products = [
                 benefits: ["Formato pequeño", "Efectivo", "Práctico"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Termogénico", "Diet Green", "15 cápsulas"]
+    ,ingredients: []
             },
             {
                 id: 21,
@@ -282,6 +300,7 @@ const products = [
                 benefits: ["Mayor duración", "Efectivo", "Práctico"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Termogénico", "Diet Green", "30 cápsulas"]
+    ,ingredients: []
             },
             {
                 id: 22,
@@ -295,6 +314,7 @@ const products = [
                 benefits: ["Premium", "Resultados superiores", "Efectivo"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Premium", "Suplemento", "Resultados"]
+    ,ingredients: []
             },
             {
                 id: 23,
@@ -308,6 +328,7 @@ const products = [
                 benefits: ["Premium", "Apoya la dieta", "Bienestar"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Premium", "Suplemento", "Bienestar"]
+    ,ingredients: []
             },
             {
                 id: 24,
@@ -321,6 +342,7 @@ const products = [
                 benefits: ["Control de peso", "Energía", "Efectivo"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Termogénico", "Fat Fit", "Control de peso"]
+    ,ingredients: []
             },
             {
                 id: 25,
@@ -334,6 +356,8 @@ const products = [
                 benefits: ["Formato pequeño", "Efectivo", "Práctico"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Termogénico", "Fat Fit Black", "15 cápsulas"]
+    ,ingredients: []
+    ,ingredients: []
             },
             {
                 id: 26,
@@ -360,6 +384,8 @@ const products = [
                 benefits: ["Mayor potencia", "Efectivo", "Práctico"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Termogénico", "Fat Fit Black", "Extra Forte"]
+    ,ingredients: []
+    ,ingredients: []
             },
             {
                 id: 28,
@@ -386,6 +412,7 @@ const products = [
                 benefits: ["Formato pequeño", "Desintoxica", "Práctico"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Detox", "Fat Fit", "15 cápsulas"]
+    ,ingredients: []
             },
             {
                 id: 30,
@@ -399,5 +426,6 @@ const products = [
                 benefits: ["Mayor duración", "Desintoxica", "Práctico"],
                 warnings: "No exceder la dosis recomendada.",
                 features: ["Detox", "Fat Fit", "30 cápsulas"]
+    ,ingredients: []
             }
 ];
